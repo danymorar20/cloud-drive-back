@@ -17,6 +17,17 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const port = configService.get<string>('PORT', '3000');
 
+  // Get allowed origin dynamically and convert to array
+  const origins = configService.get<string>('FRONTEND_ORIGINS', '')
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(origin => origin.length > 0);
+
+  app.enableCors({
+    origin: origins,
+    credentials: true,
+  });
+
   await app.listen(port);
 }
 bootstrap();
