@@ -22,6 +22,8 @@
       "@id-generator/*": ["src/services/id-generator/*"],
       "@hasher-service/*": ["src/services/hasher-service/*"],
       "@auth/*": ["src/features/auth/*"],
+      "@roles/*": ["src/features/roles/*"],
+      "@permissions/*": ["src/features/permissions/*"],
     }
   }
 }

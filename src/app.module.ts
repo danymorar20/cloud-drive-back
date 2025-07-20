@@ -5,6 +5,7 @@ import { ServicesModule } from './services/services.module';
 import { ConfigModule } from '@nestjs/config';
 import { MySQLConfig } from './config/database.config';
 import { AuthModule } from '@auth/auth.module';
+import { RoleModule } from '@roles/role.module';
 
 @Module({
   imports: [
@@ -14,10 +15,11 @@ import { AuthModule } from '@auth/auth.module';
       envFilePath: '.env',
       load: [MySQLConfig],
     }),
+    AuthModule,
+    RoleModule,
     UsersModule,
     DatabaseModule,
     ServicesModule,
-    AuthModule,
   ]
 })
 export class AppModule {}
